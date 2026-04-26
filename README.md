@@ -1,4 +1,4 @@
-# mpl-core-kit-lib
+# @obrera/mpl-core-kit-lib
 
 Temporary standalone library extraction of the reusable MPL Core `@solana/kit` helper/plugin code from [`beeman/mpl-core-kit`](https://github.com/beeman/mpl-core-kit).
 
@@ -18,16 +18,25 @@ It is a library package only, not an app or CLI.
 ## Install
 
 ```bash
-bun add mpl-core-kit-lib
+bun add @obrera/mpl-core-kit-lib
 ```
+
+GitHub Packages requires the `@obrera` scope to resolve through `https://npm.pkg.github.com` and an auth token with package read access. Add this to your `.npmrc` before installing:
+
+```ini
+@obrera:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_PACKAGES_TOKEN}
+```
+
+For local installs outside GitHub Actions, `GITHUB_PACKAGES_TOKEN` should be a classic personal access token with `read:packages`.
 
 ## Usage
 
 ```ts
-import { MPL_CORE_PROGRAM_ADDRESS } from 'mpl-core-kit-lib'
-import { createMplCoreProgram, fetchAssetV1 } from 'mpl-core-kit-lib/generated'
-import { assetPluginsListFromAssetAccountData } from 'mpl-core-kit-lib/hooked'
-import { pluginAuthorityFromBase } from 'mpl-core-kit-lib/plugins'
+import { MPL_CORE_PROGRAM_ADDRESS } from '@obrera/mpl-core-kit-lib'
+import { createMplCoreProgram, fetchAssetV1 } from '@obrera/mpl-core-kit-lib/generated'
+import { assetPluginsListFromAssetAccountData } from '@obrera/mpl-core-kit-lib/hooked'
+import { pluginAuthorityFromBase } from '@obrera/mpl-core-kit-lib/plugins'
 ```
 
 ## Development

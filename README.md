@@ -1,10 +1,10 @@
 # @obrera/mpl-core-kit-lib
 
-Temporary standalone library extraction of the reusable MPL Core `@solana/kit` helper/plugin code from [`beeman/mpl-core-kit`](https://github.com/beeman/mpl-core-kit).
+Reusable MPL Core `@solana/kit` helper/plugin code extracted from [`beeman/mpl-core-kit`](https://github.com/beeman/mpl-core-kit).
 
 ## What this is
 
-This repo packages the vendored TypeScript library that currently lives under `/lib` in `beeman/mpl-core-kit` so it can be consumed independently while the upstream kit-plugin work is still in progress.
+This repo packages the TypeScript library that currently lives under `/lib` in `beeman/mpl-core-kit` so it can be consumed independently while the upstream kit-plugin work is still in progress.
 
 It is a library package only, not an app or CLI.
 
@@ -21,14 +21,7 @@ It is a library package only, not an app or CLI.
 bun add @obrera/mpl-core-kit-lib
 ```
 
-GitHub Packages requires the `@obrera` scope to resolve through `https://npm.pkg.github.com` and an auth token with package read access. Add this to your `.npmrc` before installing:
-
-```ini
-@obrera:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=${GITHUB_PACKAGES_TOKEN}
-```
-
-For local installs outside GitHub Actions, `GITHUB_PACKAGES_TOKEN` should be a classic personal access token with `read:packages`.
+The package is intended to publish publicly to npm under the `@obrera` scope.
 
 ## Usage
 

@@ -1,7 +1,6 @@
 /tmp
 
 *.tsbuildinfo
-dist
 node_modules
 
 # START Ruler Generated Files

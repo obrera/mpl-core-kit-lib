@@ -1,12 +1,12 @@
 {
   "name": "mpl-core-kit-lib",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "Temporary standalone extraction of the MPL Core @solana/kit helper library from beeman/mpl-core-kit",
   "license": "MIT",
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/beeman/mpl-core-kit-lib.git"
+    "url": "git+https://github.com/obrera/mpl-core-kit-lib.git"
   },
   "files": [
     "dist"
@@ -27,47 +27,49 @@
     },
     "./generated": {
       "import": {
-        "types": "./dist/generated/index.d.mts",
-        "default": "./dist/generated/index.mjs"
+        "types": "./dist/generated.d.mts",
+        "default": "./dist/generated.mjs"
       },
       "require": {
-        "types": "./dist/generated/index.d.cts",
-        "default": "./dist/generated/index.cjs"
+        "types": "./dist/generated.d.cts",
+        "default": "./dist/generated.cjs"
       }
     },
     "./helpers": {
       "import": {
-        "types": "./dist/helpers/index.d.mts",
-        "default": "./dist/helpers/index.mjs"
+        "types": "./dist/helpers.d.mts",
+        "default": "./dist/helpers.mjs"
       },
       "require": {
-        "types": "./dist/helpers/index.d.cts",
-        "default": "./dist/helpers/index.cjs"
+        "types": "./dist/helpers.d.cts",
+        "default": "./dist/helpers.cjs"
       }
     },
     "./hooked": {
       "import": {
-        "types": "./dist/hooked/index.d.mts",
-        "default": "./dist/hooked/index.mjs"
+        "types": "./dist/hooked.d.mts",
+        "default": "./dist/hooked.mjs"
       },
       "require": {
-        "types": "./dist/hooked/index.d.cts",
-        "default": "./dist/hooked/index.cjs"
+        "types": "./dist/hooked.d.cts",
+        "default": "./dist/hooked.cjs"
       }
     },
     "./plugins": {
       "import": {
-        "types": "./dist/plugins/index.d.mts",
-        "default": "./dist/plugins/index.mjs"
+        "types": "./dist/plugins.d.mts",
+        "default": "./dist/plugins.mjs"
       },
       "require": {
-        "types": "./dist/plugins/index.d.cts",
-        "default": "./dist/plugins/index.cjs"
+        "types": "./dist/plugins.d.cts",
+        "default": "./dist/plugins.cjs"
       }
-    }
+    },
+    "./package.json": "./package.json"
   },
   "scripts": {
     "build": "tsdown",
+    "check:package": "npm pack --dry-run",
     "changeset": "changeset",
     "check-types": "tsc -b --noEmit",
     "ci": "bun run build && bun run lint && bun run check-types && bun test",
@@ -80,18 +82,24 @@
     "version": "changeset version && bun lint:fix"
   },
   "dependencies": {
-    "@noble/hashes": "^2.0.1",
-    "@solana/accounts": "^3.0.0",
-    "@solana/addresses": "^3.0.0",
-    "@solana/codecs": "^3.0.0",
-    "@solana/kit": "^6.8.0",
-    "@solana/rpc": "^3.0.0",
-    "@solana/rpc-types": "^3.0.0"
+    "@noble/hashes": "^2.0.1"
   },
   "peerDependencies": {
+    "@solana/accounts": "^6.8.0",
+    "@solana/addresses": "^6.8.0",
+    "@solana/codecs": "^6.8.0",
+    "@solana/kit": "^6.8.0",
+    "@solana/rpc": "^6.8.0",
+    "@solana/rpc-types": "^6.8.0",
     "typescript": "^5"
   },
   "devDependencies": {
+    "@solana/accounts": "^6.8.0",
+    "@solana/addresses": "^6.8.0",
+    "@solana/codecs": "^6.8.0",
+    "@solana/kit": "^6.8.0",
+    "@solana/rpc": "^6.8.0",
+    "@solana/rpc-types": "^6.8.0",
     "@biomejs/biome": "2.4.6",
     "@changesets/cli": "^2.29.8",
     "@intellectronica/ruler": "^0.3.34",

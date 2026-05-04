@@ -49,6 +49,11 @@ jobs:
       - name: Check package
         run: bun x publint
 
+      - name: Configure npm auth
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
+
       - name: Publish to npm
         uses: changesets/action@v1
         with:
@@ -58,6 +63,7 @@ jobs:
           version: bun run version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
 
@@ -81,6 +87,11 @@ jobs:
       - name: Check package
         run: bun x publint
 
+      - name: Configure npm auth
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
+
       - name: Create canary version
         run: bun x changeset version --snapshot canary
 
@@ -88,5 +99,6 @@ jobs:
         run: bun x changeset publish --tag canary
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_PROVENANCE: true

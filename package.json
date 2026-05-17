@@ -1,6 +1,6 @@
 {
   "name": "@obrera/mpl-core-kit-lib",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "MPL Core helper library for Solana Kit clients",
   "license": "MIT",
   "type": "module",
